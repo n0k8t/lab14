@@ -37,9 +37,8 @@ bp::child Build(int time = 0){
 
 bp::child Target(std::string inst)
 {
-    std::string cmd("cmake --build _builds");
-    cmd += " --target ";
-    cmd +=inst;
+    std::string cmd("cmake --build _builds --target ");
+    cmd += inst;
 
     std::cout << "command = " << cmd << std::endl;
     bp::child c(cmd, bp::std_out > stdout);
