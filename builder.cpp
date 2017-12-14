@@ -7,9 +7,7 @@ namespace bp = boost::process;
 namespace po = boost::program_options;
 
 bp::child Make(int time = 0, std::string build="Debug"){
-    std::string cmd("cmake -H. -B_builds -DCMAKE_INSTALL_PREFIX=");
-    cmd += "_install";
-    cmd += " -DCMAKE_BUILD_TYPE=";
+    std::string cmd("cmake -H. -B_builds -DCMAKE_INSTALL_PREFIX=_install -DCMAKE_BUILD_TYPE=");
     cmd += build;
     std::cout << "command = " << cmd << '\n';
     bp::child c(cmd, bp::std_out > stdout);
